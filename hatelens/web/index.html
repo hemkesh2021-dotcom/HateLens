@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f4f0">
+  <meta name="description" content="A clearer view of your community. Analyze comments, understand predictions, audit bias, and review human feedback with HateLens.">
+  <title>HateLens · A clearer conversation</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/imports.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-lens" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><circle cx="10.5" cy="10.5" r="2.5"/><path d="m15.5 15.5 4.5 4.5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.5"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1.5"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1.5"/><rect x="14" y="14" width="6.5" height="6.5" rx="1.5"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3M7 9h10M7 13h10M7 17h5"/></symbol>
+    <symbol id="i-queue" viewBox="0 0 24 24"><path d="M8 6h12M8 12h8M8 18h7"/><circle cx="3" cy="6" r=".6"/><circle cx="3" cy="12" r=".6"/><circle cx="3" cy="18" r=".6"/><path d="m18 17 2 2 3-4"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 15a3 3 0 0 1-3 3H9l-5 3v-6a3 3 0 0 1-1-2V6a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3Z"/><path d="M7 8h9M7 12h6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5C9 3 6 3 3 4v15c3-1 6-1 9 1 3-2 6-2 9-1V4c-3-1-6-1-9 1Zm0 0v15"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14a8.7 8.7 0 0 1-10-10A9 9 0 1 0 20 14Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-5-5 5 5-5 5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v4h16v-4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-11v1"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m15 4 5 5M4 20l5-1L21 7a2 2 0 0 0-4-4L5 15Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 3C10 3 4 6 4 13a6 6 0 0 0 6 6c7 0 10-6 10-16ZM3 21 15 9"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M5 7a8 8 0 0 1 13-2l2 3M4 16l2 3a8 8 0 0 0 13-2"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="sidebar" id="sidebar" aria-label="Workspace navigation">
+    <a href="#overview" class="brand"><span class="brand-icon"><svg class="icon"><use href="#i-lens"/></svg></span><span>HateLens<span class="brand-dot">.</span></span></a>
+    <div class="workspace-chip"><span class="workspace-avatar">HL</span><span>Research workspace<small>Local · English</small></span><span class="live-dot" aria-label="Local workspace"></span></div>
+    <p class="nav-caption">WORKSPACE</p>
+    <nav>
+      <a href="#overview" data-page="overview"><svg class="icon"><use href="#i-grid"/></svg>Overview</a>
+      <a href="#analyze" data-page="analyze"><svg class="icon"><use href="#i-scan"/></svg>Analyze comments</a>
+      <a href="#import" data-page="import"><svg class="icon"><use href="#i-download"/></svg>Import comments</a>
+      <a href="#review" data-page="review"><svg class="icon"><use href="#i-queue"/></svg>Review queue<span class="nav-count" id="review-count">0</span></a>
+      <a href="#feedback" data-page="feedback"><svg class="icon"><use href="#i-chat"/></svg>Human feedback<span class="nav-count" id="feedback-count">0</span></a>
+      <a href="#audit" data-page="audit"><svg class="icon"><use href="#i-shield"/></svg>Bias audit</a>
+      <div class="nav-divider"></div>
+      <a href="#model" data-page="model"><svg class="icon"><use href="#i-book"/></svg>Model & methods</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="human-note"><svg class="icon"><use href="#i-leaf"/></svg><strong>People make the call.</strong><p>A little more context.<br>A little less guesswork.</p></div>
+      <div class="theme-switch" role="group" aria-label="Color theme"><button type="button" data-theme-choice="light" aria-pressed="true"><svg class="icon"><use href="#i-sun"/></svg>Light</button><button type="button" data-theme-choice="dark" aria-pressed="false"><svg class="icon"><use href="#i-moon"/></svg>Dark</button></div>
+      <div class="sidebar-footer"><span class="live-dot"></span>Runs on your machine<span>v0.1</span></div>
+    </div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="icon-button menu-button" id="menu-button" type="button" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button>
+      <div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb-current">Overview</strong></div>
+      <div class="topbar-actions"><span class="model-status" id="model-status"><span class="live-dot"></span>Connecting</span><button class="button secondary small" id="export-button" type="button" aria-label="Export report"><svg class="icon"><use href="#i-download"/></svg><span>Export report</span></button></div>
+    </header>
+    <main id="main" tabindex="-1"><div class="initial-loading"><span class="spinner"></span><p>Opening your workspace…</p></div></main>
+    <footer class="main-footer"><span>Built for thoughtful moderation.</span><span>Traditional NLP <span class="footer-dot">·</span> Human judgment</span></footer>
+  </div>
+  <dialog id="detail-dialog" class="dialog wide"><button class="icon-button dialog-close" type="button" data-close="detail-dialog" aria-label="Close analysis"><svg class="icon"><use href="#i-x"/></svg></button><div id="detail-content"></div></dialog>
+  <dialog id="feedback-dialog" class="dialog">
+    <button class="icon-button dialog-close" type="button" data-close="feedback-dialog" aria-label="Close feedback"><svg class="icon"><use href="#i-x"/></svg></button>
+    <p class="eyebrow">YOUR PERSPECTIVE MATTERS</p><h2 id="feedback-title">Help us see it clearly.</h2><p class="muted">Share a correction or add context. Every submission is reviewed before it can be used for training.</p>
+    <form id="feedback-form"><input type="hidden" name="prediction_id"><input type="hidden" name="kind">
+      <label for="feedback-label">Suggested category</label><select id="feedback-label" name="proposed_label"><option value="">I’m not sure</option><option value="hate">Hate speech</option><option value="offensive">Offensive language</option><option value="neither">Neither</option></select>
+      <label for="feedback-reason">What did the model miss?</label><select id="feedback-reason" name="reason"><option value="wrong_category">The category is incorrect</option><option value="quotation">It is quoting someone</option><option value="sarcasm">It uses sarcasm</option><option value="opposing_hate">It is speaking against hate</option><option value="missing_context">It needs more context</option><option value="other">Something else</option></select>
+      <label for="feedback-note">Add context <span class="optional">(optional)</span></label><textarea id="feedback-note" name="note" maxlength="600" rows="3" placeholder="What would help a reviewer understand this comment?"></textarea>
+      <p class="form-error" role="alert"></p><div class="form-actions"><button type="button" class="button secondary" data-close="feedback-dialog">Cancel</button><button type="submit" class="button primary">Submit feedback<svg class="icon"><use href="#i-arrow"/></svg></button></div>
+    </form>
+  </dialog>
+  <dialog id="review-dialog" class="dialog">
+    <button class="icon-button dialog-close" type="button" data-close="review-dialog" aria-label="Close review"><svg class="icon"><use href="#i-x"/></svg></button>
+    <p class="eyebrow">HUMAN REVIEW</p><h2>A considered second look.</h2><div id="review-context"></div>
+    <form id="review-form"><input type="hidden" name="feedback_id"><label for="review-label">Final category</label><select id="review-label" name="reviewed_label"><option value="">Choose a category</option><option value="hate">Hate speech</option><option value="offensive">Offensive language</option><option value="neither">Neither</option></select><label for="review-note">Reviewer’s note <span class="optional">(optional)</span></label><textarea id="review-note" name="note" rows="3" maxlength="600" placeholder="Why is this the appropriate decision?"></textarea><p class="form-hint">Accepted labels become eligible for offline retraining. They do not update the active model automatically.</p><p class="form-error" role="alert"></p><div class="form-actions"><button type="submit" name="decision" value="rejected" class="button secondary">Reject submission</button><button type="submit" name="decision" value="accepted" class="button primary">Accept label<svg class="icon"><use href="#i-check"/></svg></button></div></form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">Please enable JavaScript to use the HateLens workspace.</p></noscript>
+</body>
+</html>
